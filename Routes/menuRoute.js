@@ -21,7 +21,7 @@ menuRouter.post("/add", async (req, res) => {
 // To Get Menu of particular user
 menuRouter.get("/", async (req, res) => {
     try {
-        const menu = await menuModel.find()
+        const menu = await menuModel.find().maxTimeMS(20000); // Set a higher timeout value (e.g., 20 seconds)
         res.json({ msg: "Menu List", menu })
     } catch (error) {
         res.json({ error: error.message })
