@@ -1,5 +1,4 @@
 const express = require("express")
-const { auth } = require("../Middlewares/authMiddlewares")
 const { menuModel } = require("../Models/menuModel")
 
 const menuRouter = express.Router()
@@ -22,7 +21,7 @@ menuRouter.post("/add", async (req, res) => {
 menuRouter.get("/", async (req, res) => {
     try {
         const menu = await menuModel.find()
-        res.status(200).json({ msg: "Menu List", menu })
+        res.json({ msg: "Menu List", menu })
     } catch (error) {
         res.json({ error: error.message })
     }
