@@ -30,8 +30,8 @@ adminRouter.post("/admin-register", async (req, res) => {
 
 adminRouter.get("/", async (req, res) => {
   try {
-    const menu = await AdminModel.find()
-    res.json({ msg: "Admin List", menu })
+    const admin = await AdminModel.find()
+    res.json({ msg: "Admin List", admin })
   } catch (error) {
     res.json({ error: error.message })
   }
